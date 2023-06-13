@@ -1,0 +1,69 @@
+•Approach
+
+ • First loop for storing the row which has to be compared with each column.
+ • Second loop for selecting the coloumn which has to be compare.
+ • Third loop for comparing the element of selected coloumn.
+ • If the selected coloumn and row are equal then we increment the count .
+
+•Complexity
+ • Time complexity:O(n^3)
+ • Space complexity:O(n)
+
+•Code
+
+class Solution {
+public:
+    int equalPairs(vector<vector<int>>& grid) {
+     int cnt=0;
+//👉Loop for selecting row.
+     for(int i=0;i<grid.size();i++){
+         vector<int>temp=grid[i];
+
+//👉Loop for selecting coloumn         
+         for(int j=0;j<grid.size();j++){
+
+             bool flag=true;
+//👉Loop for comparing the elements of selected coloumn.            
+             for(int z=0;z<grid.size();z++){
+                 if(temp[z]!=grid[z][j]){
+                     flag=false;
+                     break;
+                 }
+             }
+             if(flag==true)cnt++;
+         }
+     } 
+
+     return cnt;
+    }
+};
+•Complexity
+ 
+ • Time complexity:O(n^3)
+ • Space complexity:O(1)
+  
+  class Solution {
+public:
+    int equalPairs(vector<vector<int>>& grid) {
+     int cnt=0;
+//👉Loop for selecting row.
+     for(int i=0;i<grid.size();i++){
+
+//👉Loop for selecting coloumn         
+         for(int j=0;j<grid.size();j++){
+
+             bool flag=true;
+//👉Loop for comparing the elements of selected coloumn.            
+             for(int z=0;z<grid.size();z++){
+                 if(grid[i][z]!=grid[z][j]){
+                     flag=false;
+                     break;
+                 }
+             }
+             if(flag==true)cnt++;
+         }
+     } 
+
+     return cnt;
+    }
+};
